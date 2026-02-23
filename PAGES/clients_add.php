@@ -24,7 +24,7 @@ if (isset($_POST['save'])) {
 <html>
 
 <head><meta charset="utf-8"><title>Add Client</title></head>
-<link rel="stylesheet" href="/assessment_db/style.css">
+<link rel="stylesheet" href="../style.css">
 
 <body>
 <?php include "../nav.php"; ?>
@@ -50,3 +50,4 @@ if (isset($_POST['save'])) {
 </body>
 
 </html>
+

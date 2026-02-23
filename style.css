@@ -112,7 +112,7 @@
     background: #27ae60;
   }
   
-  /* Nav styles */
+
   .navbar {
     display: flex;
     justify-content: center;
@@ -139,9 +139,7 @@
     color: #fff;
   }
   
-  /* --- NEW STYLES FOR TABLES AND FORMS --- */
-  
-  /* Tables */
+ 
   table {
     width: 100%;
     border-collapse: collapse;
@@ -178,13 +176,14 @@
     text-decoration: underline;
   }
   
-  /* Forms */
+
   form {
     background: #fff;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     max-width: 500px;
+    margin: 0 auto; 
   }
   
   label {

@@ -6,7 +6,7 @@ $result = mysqli_query($conn, "SELECT * FROM clients ORDER BY client_id DESC");
 <html>
 
 <head><meta charset="utf-8"><title>Clients</title></head>
-<link rel="stylesheet" href="/assessment_db/style.css">
+<link rel="stylesheet" href="../style.css">
 
 <body>
 <?php include "../nav.php"; ?>
@@ -33,3 +33,4 @@ $result = mysqli_query($conn, "SELECT * FROM clients ORDER BY client_id DESC");
 </body>
 
 </html>
+

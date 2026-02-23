@@ -32,7 +32,7 @@ if (isset($_POST['update'])) {
 <html>
 
 <head><meta charset="utf-8"><title>Edit Client</title></head>
-<link rel="stylesheet" href="/assessment_beginner/style.css">
+<link rel="stylesheet" href="/assessment_db/style.css">
 
 <body>
 <?php include "../nav.php"; ?>
@@ -56,4 +56,5 @@ if (isset($_POST['update'])) {
   <button type="submit" name="update">Update</button>
 </form>
 </body>
+
 </html>

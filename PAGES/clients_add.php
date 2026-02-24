@@ -27,6 +27,7 @@ if (isset($_POST['save'])) {
 <link rel="stylesheet" href="../style.css">
 
 <body>
+<div class="wrapper">
 <?php include "../nav.php"; ?>
  
 <h2>Add Client</h2>
@@ -47,6 +48,7 @@ if (isset($_POST['save'])) {
  
   <button type="submit" name="save">Save</button>
 </form>
+</div>
 </body>
 
 </html>

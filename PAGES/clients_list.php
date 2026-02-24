@@ -9,6 +9,7 @@ $result = mysqli_query($conn, "SELECT * FROM clients ORDER BY client_id DESC");
 <link rel="stylesheet" href="../style.css">
 
 <body>
+<div class="wrapper">
 <?php include "../nav.php"; ?>
  
 <h2>Clients</h2>
@@ -30,6 +31,7 @@ $result = mysqli_query($conn, "SELECT * FROM clients ORDER BY client_id DESC");
     </tr>
   <?php } ?>
 </table>
+</div>
 </body>
 
 </html>

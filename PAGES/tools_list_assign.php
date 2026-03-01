@@ -5,20 +5,25 @@ $message      = "";
 $message_type = "success";
 
 if (isset($_POST['assign'])) {
-  $booking_id = $_POST['booking_id'];
-  $tool_id    = $_POST['tool_id'];
-  $qty        = $_POST['qty_used'];
+  $booking_id = isset($_POST['booking_id']) ? intval($_POST['booking_id']) : 0;
+  $tool_id    = isset($_POST['tool_id'])    ? intval($_POST['tool_id'])    : 0;
+  $qty        = isset($_POST['qty_used'])   ? intval($_POST['qty_used'])   : 0;
 
-  $toolRow = mysqli_fetch_assoc(mysqli_query($conn, "SELECT quantity_available FROM tools WHERE tool_id=$tool_id"));
-
-  if ($qty > $toolRow['quantity_available']) {
-    $message      = "Not enough available tools!";
+  if ($booking_id <= 0 || $tool_id <= 0 || $qty <= 0) {
+    $message      = "Please select a valid booking, tool, and quantity.";
     $message_type = "error";
   } else {
-    mysqli_query($conn, "INSERT INTO booking_tools (booking_id, tool_id, qty_used)
-      VALUES ($booking_id, $tool_id, $qty)");
-    mysqli_query($conn, "UPDATE tools SET quantity_available = quantity_available - $qty WHERE tool_id=$tool_id");
-    $message = "Tool assigned successfully!";
+    $toolRow = mysqli_fetch_assoc(mysqli_query($conn, "SELECT quantity_available FROM tools WHERE tool_id=$tool_id"));
+
+    if ($qty > $toolRow['quantity_available']) {
+      $message      = "Not enough available tools!";
+      $message_type = "error";
+    } else {
+      mysqli_query($conn, "INSERT INTO booking_tools (booking_id, tool_id, qty_used)
+        VALUES ($booking_id, $tool_id, $qty)");
+      mysqli_query($conn, "UPDATE tools SET quantity_available = quantity_available - $qty WHERE tool_id=$tool_id");
+      $message = "Tool assigned successfully!";
+    }
   }
 }
 
@@ -77,6 +82,7 @@ $bookings = mysqli_query($conn, "SELECT booking_id FROM bookings ORDER BY bookin
   <form method="post">
     <label>Booking</label>
     <select name="booking_id">
+      <option value="">-- Select Booking --</option>
       <?php while ($b = mysqli_fetch_assoc($bookings)) { ?>
         <option value="<?php echo $b['booking_id']; ?>">Booking #<?php echo $b['booking_id']; ?></option>
       <?php } ?>
